@@ -3,7 +3,7 @@ Install:
 wget https://github.com/traefik/traefik/releases/download/v2.3.0/traefik_v2.3.0_linux_amd64.tar.gz
 
 
-
+```bash
 tar xfz traefik_v2.3.0_linux_amd64.tar.gz
 rm traefik_v2.3.0_linux_amd64.tar.gz
 sudo cp traefik /usr/local/bin
@@ -37,3 +37,4 @@ sudo chmod 644 /etc/systemd/system/traefik.service
 sudo systemctl daemon-reload
 sudo systemctl start traefik.service
 sudo systemctl enable traefik.service
+```
