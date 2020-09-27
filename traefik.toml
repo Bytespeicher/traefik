@@ -9,7 +9,7 @@
     address = ":443"
 
 [pilot]
-  token="13a82797-6faf-4a1c-b722-b95c69db9cd4"
+  token="XXX"
 
  [experimental.plugins.cache]
    modulename = "github.com/traefik/plugin-simplecache"
