@@ -1,0 +1,53 @@
+[global]
+  checkNewVersion = true
+  sendAnonymousUsage = true
+
+[entryPoints]
+  [entryPoints.http]
+    address = ":80"
+  [entryPoints.https]
+    address = ":443"
+
+[pilot]
+  token="13a82797-6faf-4a1c-b722-b95c69db9cd4"
+
+ [experimental.plugins.cache]
+   modulename = "github.com/traefik/plugin-simplecache"
+   version = "v0.2.1"
+
+
+[providers]
+  [providers.file]
+    filename = "/etc/traefik/dynamic.toml"
+    watch = true
+    debugLogGeneratedTemplate = true
+    
+# for Docker integration
+#[providers.docker]
+#  endpoint = "tcp://10.10.10.10:2375" 
+#  swarmMode = true
+#  watch = true
+#  exposedByDefault = false
+#  network = "ingress"
+
+[certificatesResolvers]
+  [certificatesResolvers.letsencrypt.acme]
+    email = "hostmaster@bytespeicher.org"
+    storage = "/etc/traefik/acme.json"
+# FOR TESTING - IN PRODUCTION COMMENT NEXT LINE
+    caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+     [certificatesResolvers.letsencrypt.acme.tlsChallenge]
+
+
+[api]
+  insecure = false
+  dashboard = true
+  debug = false
+
+[log]
+  level = "INFO"
+  filePath = "/var/log/traefik/traefik.log"
+
+[accessLog]
+  filePath = "/var/log/traefik/access.log"
+  bufferingSize = 100
