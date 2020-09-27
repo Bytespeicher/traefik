@@ -8,12 +8,14 @@
   [entryPoints.https]
     address = ":443"
 
-[pilot]
-  token="XXX"
 
- [experimental.plugins.cache]
-   modulename = "github.com/traefik/plugin-simplecache"
-   version = "v0.2.1"
+#[pilot]
+#  token="XXX"
+
+ #[experimental.plugins.cache]
+  # modulename = "github.com/traefik/plugin-simplecache"
+   #version = "v0.2.1"
+
 
 
 [providers]
