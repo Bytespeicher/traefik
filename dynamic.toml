@@ -24,19 +24,7 @@
 [http.services.web]
   [[http.services.monitor.loadBalancer.servers]]
     url = "http://10.10.10.3/"
-
-
-# Loadbalancing example
-#[http.services.mapstatic]
-#  [[http.services.mapstatic.loadBalancer.servers]]
-#    url = "https://a.tile.openstreetmap.de/"
-#  [[http.services.mapstatic.loadBalancer.servers]]
-#    url = "https://b.tile.openstreetmap.de/"
-#  [[http.services.mapstatic.loadBalancer.servers]]
-#    url = "https://c.tile.openstreetmap.de/"
-#  [[http.services.mapstatic.loadBalancer.servers]]
-#    url = "https://d.tile.openstreetmap.de/"
-
+    
 [http.routers]
   [http.routers.http_to_https]
     entryPoints = [ "http" ]
@@ -61,15 +49,6 @@
     priority = 100
     [http.routers.web.tls]
     certResolver = "letsencrypt"
-    
-#  [http.routers.mapstatic]
-#    entryPoints = [ "https"]
-#    rule="Host(`map.erfurt.freifunk.net`) && PathPrefix(`/`)"
-#    service="mapstatic"
-#    middlewares= [ "my-cache" ]
-#    priority = 100
-#    [http.routers.fapstatic.tls]
-#    certResolver = "letsencrypt"
 
  [http.routers.mail]
     entryPoints = [ "https"]
@@ -78,15 +57,3 @@
     priority = 10
  [http.routers.mail.tls]
     certResolver = "letsencrypt"
-
-#[tcp.routers]
-#  [tcp.routers.puppet]
-#   entryPoints = [ "puppet" ]
-#    rule="HostSNI(`puppet.bytespeicher.org`) || HostSNI(`puppet.kids-digital.de`) "
-#    service="puppet"
-#  [tcp.routers.puppet.tls]
- #   passthrough = true
-
-#[tcp.services.puppet]
-#  [[tcp.services.puppet.loadBalancer.servers]]
-#    address = "10.10.10.10:8140"
