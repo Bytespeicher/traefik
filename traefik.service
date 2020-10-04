@@ -11,7 +11,7 @@ User=traefik
 Group=traefik
 
 ; Always set "-root" to something safe in case it gets forgotten in the traefikfile.
-ExecStart=/usr/local/bin/traefik --configfile=/etc/traefik/traefik.toml
+ExecStart=/opt/traefik/traefik --configfile=/etc/traefik/traefik.toml
 
 ; Limit the number of file descriptors; see `man systemd.exec` for more limit settings.
 LimitNOFILE=1048576
@@ -24,7 +24,7 @@ PrivateDevices=false
 ProtectHome=true
 ; Make /usr, /boot, /etc and possibly some more folders read-only.
 ProtectSystem=full
-; … except /etc/ssl/traefik, because we want Letsencrypt-certificates there.
+; ... except /etc/traefik/acme, because we want Letsencrypt-certificates there.
 ;   This merely retains r/w access rights, it does not add any new. Must still be writable on the host!
 ReadWriteDirectories=/etc/traefik/acme
 
