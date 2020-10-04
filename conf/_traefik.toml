@@ -1,0 +1,15 @@
+[http.middlewares]
+  [http.middlewares.auth.basicAuth]
+    usersFile = "/etc/traefik/user"
+    realm = "Loadbalancer"
+
+[http.routers]
+
+  [http.routers.traefik]
+    entryPoints = [ "https"]
+    middlewares = [ "auth" ]
+    rule = "Host(`traefik.bytecluster0002.bytespeicher.org`)"
+    service = "api@internal"
+ 
+    [http.routers.traefik.tls]
+      certResolver = "letsencrypt"

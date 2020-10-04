@@ -1,32 +1,14 @@
 
-[http.middlewares]
-  [http.middlewares.auth.basicAuth]
-    users = [
-      "XUSERX:XHASHX"
-    ]
 # Cacheing Plugin usage after registration in pilot
 #  [http.middlewares.my-cache.plugin.cache]
 #    path = "/var/lib/traefik/cache"
 #    maxExpiry = 86400
 
-[http.services.traefikdash]
-  [[http.services.traefikdash.loadBalancer.servers]]
-    port = 8080
-    
 [http.services.web]
   [[http.services.monitor.loadBalancer.servers]]
     url = "http://10.10.10.3/"
     
 [http.routers]
-
-  [http.routers.traefikdash]
-    entryPoints = [ "https"]
-    middlewares = [ "auth" ]
-    rule="Host (`traefik.bytespeicher.org`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
-    service="api@internal"
-    [http.routers.traefikdash.tls]
-    certResolver = "letsencrypt"
-
 
  [http.routers.web]
     entryPoints = [ "https"]
