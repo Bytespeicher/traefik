@@ -1,6 +1,6 @@
 [http.middlewares]
   [http.middlewares.auth.basicAuth]
-    usersFile = "/etc/traefik/user"
+    usersFile = "/etc/traefik/users"
     realm = "Loadbalancer"
 
 [http.routers]
