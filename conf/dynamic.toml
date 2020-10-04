@@ -9,14 +9,6 @@
 #    path = "/var/lib/traefik/cache"
 #    maxExpiry = 86400
 
-   [http.middlewares.http_to_https.redirectScheme]
-    scheme = "https"
-    permanent = true
-
-[http.services.http_to_https]
-  [[http.services.http_to_https.loadBalancer.servers]]
-    url = "http://google.com/"
-    
 [http.services.traefikdash]
   [[http.services.traefikdash.loadBalancer.servers]]
     port = 8080
@@ -26,12 +18,6 @@
     url = "http://10.10.10.3/"
     
 [http.routers]
-  [http.routers.http_to_https]
-    entryPoints = [ "http" ]
-    rule = "PathPrefix(`/`)"
-    middlewares = [ "http_to_https" ]
-    service = "http_to_https"
-    priority = 1
 
   [http.routers.traefikdash]
     entryPoints = [ "https"]

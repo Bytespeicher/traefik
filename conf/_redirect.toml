@@ -1,0 +1,15 @@
+[http.middlewares.http_to_https.redirectScheme]
+  scheme = "https"
+  permanent = true
+
+[http.services.http_to_https]
+  [[http.services.http_to_https.loadBalancer.servers]]
+    url = "http://127.0.0.1/"
+
+[http.routers]
+  [http.routers.http_to_https]
+    entryPoints = [ "http" ]
+    middlewares = [ "http_to_https" ]
+    rule = "HostRegexp(`{host:.+}`)"
+    service = "http_to_https"
+    priority = 1
