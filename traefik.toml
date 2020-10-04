@@ -8,15 +8,12 @@
   [entryPoints.https]
     address = ":443"
 
+# [pilot]
+#   token="XXX"
 
-#[pilot]
-#  token="XXX"
-
- #[experimental.plugins.cache]
-  # modulename = "github.com/traefik/plugin-simplecache"
-   #version = "v0.2.1"
-
-
+# [experimental.plugins.cache]
+#   modulename = "github.com/traefik/plugin-simplecache"
+#   version = "v0.2.1"
 
 [providers]
   [providers.file]
@@ -25,12 +22,12 @@
     # debugLogGeneratedTemplate = true
 
 # for Docker integration
-#[providers.docker]
-#  endpoint = "tcp://10.10.10.10:2375" 
-#  swarmMode = true
-#  watch = true
-#  exposedByDefault = false
-#  network = "ingress"
+# [providers.docker]
+#   endpoint = "tcp://10.10.10.10:2375"
+#   swarmMode = true
+#   watch = true
+#   exposedByDefault = false
+#   network = "ingress"
 
 [certificatesResolvers]
   [certificatesResolvers.letsencrypt.acme]
