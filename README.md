@@ -14,7 +14,7 @@ sudo groupadd --gid 321 traefik
 sudo useradd --gid traefik --no-user-group --home-dir /opt/traefik --no-create-home --shell /usr/sbin/nologin --system --uid 321 traefik
 
 git clone https://github.com/Bytespeicher/traefik
-sudo cp -R traefik/etc/traefik /etc/traefik
+sudo cp -R traefik/etc/traefik/ /etc/
 sudp cp traefik/etc/systemd/system/traefik.service /etc/systemd/system/
 sudo cp traefik/etc/logrotate.d/traefik /etc/logrotate.d/
 
