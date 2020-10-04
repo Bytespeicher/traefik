@@ -20,10 +20,10 @@
 
 [providers]
   [providers.file]
-    filename = "/etc/traefik/dynamic.toml"
+    directory = "/etc/traefik/conf"
     watch = true
-    debugLogGeneratedTemplate = true
-    
+    # debugLogGeneratedTemplate = true
+
 # for Docker integration
 #[providers.docker]
 #  endpoint = "tcp://10.10.10.10:2375" 
@@ -36,10 +36,9 @@
   [certificatesResolvers.letsencrypt.acme]
     email = "hostmaster@bytespeicher.org"
     storage = "/etc/traefik/acme/acme.json"
-# FOR TESTING - IN PRODUCTION COMMENT NEXT LINE
+    # FOR TESTING - IN PRODUCTION COMMENT NEXT LINE
     caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
-     [certificatesResolvers.letsencrypt.acme.tlsChallenge]
-
+      [certificatesResolvers.letsencrypt.acme.tlsChallenge]
 
 [api]
   insecure = false
