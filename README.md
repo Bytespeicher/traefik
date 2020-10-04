@@ -16,7 +16,7 @@ sudo useradd --gid traefik --no-user-group --home-dir /opt/traefik --no-create-h
 git clone https://github.com/Bytespeicher/traefik
 sudo cp -R traefik/etc/traefik /etc/traefik
 sudp cp traefik/etc/systemd/system/traefik.service /etc/systemd/system/
-sudo cp traefik/etc/logrotate.d/traefik /etc/logrotate.de/
+sudo cp traefik/etc/logrotate.d/traefik /etc/logrotate.d/
 
 sudo chown -R traefik:traefik /{opt,etc,var/log}/traefik
 sudo chmod 750 /opt/traefik/traefik
