@@ -1,0 +1,10 @@
+# HSTS and Security Headers
+[http.middlewares]
+  [http.middlewares.securityHeaders.headers]
+    stsIncludeSubdomains = false
+    stsPreload = true
+    stsSeconds = 15768000
+    browserXssFilter = true
+    contentTypeNosniff = true
+    frameDeny = true
+    sslRedirect = true
