@@ -7,7 +7,7 @@
 
   [http.routers.traefik]
     entryPoints = [ "https"]
-    middlewares = [ "auth" ]
+    middlewares = [ "auth", "securityHeaders" ]
     rule = "Host(`traefik.bytecluster0002.bytespeicher.org`)"
     service = "api@internal"
  
