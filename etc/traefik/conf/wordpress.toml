@@ -1,0 +1,20 @@
+[http.middlewares]
+  [http.middlewares.redirectOldWiki.redirectRegex]
+    regex = "^https://technikkultur-erfurt.de/(start|_media/.*|.*:.*)"
+    replacement = "https://wiki.technikkultur-erfurt.de/${1}"
+
+# [http.services]
+#   [http.services.wordpress.loadbalancer]
+#     [[http.services.wordpress.loadbalancer.servers]]
+#       url = "http://10.2.0.30:8086"
+#
+# [http.routers]
+#
+#   [http.routers.wordpress]
+#     entryPoints = [ "https"]
+#     middlewares = [ "redirectOldWiki" ]
+#     rule = "Host(`technikkultur-erfurt.de`)"
+#     service = "wordpress"
+#
+#     [http.routers.wordpress.tls]
+#       certResolver = "letsencrypt"
