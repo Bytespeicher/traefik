@@ -1,0 +1,12 @@
+[http.services]
+  [http.services.bytecluster.loadbalancer]
+    [[http.services.bytecluster.loadbalancer.servers]]
+      url = "http://10.2.0.254:80"
+
+[http.routers]
+
+  [http.routers.bytecluster]
+    entryPoints = [ "http"]
+    rule = "Host(`bytecluster0002.bytespeicher.org`)"
+    service = "bytecluster"
+    priority = 999
