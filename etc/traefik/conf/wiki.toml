@@ -1,0 +1,14 @@
+[http.services]
+  [http.services.wiki.loadbalancer]
+    [[http.services.wiki.loadbalancer.servers]]
+      url = "http://10.2.0.2:80"
+
+[http.routers]
+
+  [http.routers.wiki]
+    entryPoints = [ "https"]
+    rule = "Host(`wiki.technikkultur-erfurt.de`)"
+    service = "wiki"
+ 
+    [http.routers.wiki.tls]
+      certResolver = "letsencrypt"

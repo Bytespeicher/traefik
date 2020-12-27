@@ -33,8 +33,6 @@
   [certificatesResolvers.letsencrypt.acme]
     email = "hostmaster@bytespeicher.org"
     storage = "/etc/traefik/acme/acme.json"
-    # FOR TESTING - IN PRODUCTION COMMENT NEXT LINE
-    caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
       [certificatesResolvers.letsencrypt.acme.tlsChallenge]
 
 [api]
