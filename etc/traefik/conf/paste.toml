@@ -1,0 +1,30 @@
+# Redirect old paste url to new one
+[http.middlewares]
+  [http.middlewares.redirectOldPaste.redirectRegex]
+    regex = "^https://paste.bytespeicher.org/(.*)"
+    replacement = "https://paste.technikkultur-erfurt.de/${1}"
+
+[http.services]
+  [http.services.paste.loadbalancer]
+    [[http.services.paste.loadbalancer.servers]]
+      url = "http://10.2.0.4:80"
+
+[http.routers]
+
+  [http.routers.paste]
+    entryPoints = [ "https"]
+    rule = "Host(`paste.technikkultur-erfurt.de`)"
+    service = "paste"
+ 
+    [http.routers.paste.tls]
+      certResolver = "letsencrypt"
+
+  # Router for old paste url
+  [http.routers.pasteOld]
+    entryPoints = [ "https"]
+    middlewares = [ "redirectOldPaste" ]
+    rule = "Host(`paste.bytespeicher.org`)"
+    service = "paste"
+
+    [http.routers.pasteOld.tls]
+      certResolver = "letsencrypt"
