@@ -1,0 +1,14 @@
+[http.services]
+  [http.services.pad.loadbalancer]
+    [[http.services.pad.loadbalancer.servers]]
+      url = "http://10.2.0.3:9001"
+
+[http.routers]
+
+  [http.routers.pad]
+    entryPoints = [ "https"]
+    rule = "Host(`pad.technikkultur-erfurt.de`)"
+    service = "pad"
+ 
+    [http.routers.pad.tls]
+      certResolver = "letsencrypt"
