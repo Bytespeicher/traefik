@@ -1,6 +1,11 @@
-[http.middlewares.http_to_https.redirectScheme]
-  scheme = "https"
-  permanent = true
+[http.middlewares]
+  [http.middlewares.http_to_https.redirectScheme]
+    scheme = "https"
+    permanent = true
+
+  [http.middlewares.www_to_non-www.redirectRegex]
+    regex = "^https://www.(.*)"
+    replacement = "https://${1}"
 
 [http.services.http_to_https]
   [[http.services.http_to_https.loadBalancer.servers]]
