@@ -1,0 +1,15 @@
+[http.services]
+  [http.services.wordpressFreifunkErfurt.loadbalancer]
+    [[http.services.wordpressFreifunkErfurt.loadbalancer.servers]]
+      url = "http://10.2.0.6:80"
+
+[http.routers]
+
+  [http.routers.wordpressFreifunkErfurt]
+    entryPoints = [ "https"]
+    middlewares = [ "www_to_non-www" ]
+    rule = "Host(`erfurt.freifunk.net`) || Host(`www.erfurt.freifunk.net`)"
+    service = "wordpressFreifunkErfurt"
+ 
+    [http.routers.wordpressFreifunkErfurt.tls]
+      certResolver = "letsencrypt"
