@@ -1,0 +1,14 @@
+[http.services]
+  [http.services.staticOld.loadbalancer]
+    [[http.services.staticOld.loadbalancer.servers]]
+      url = "http://10.2.0.8"
+
+[http.routers]
+
+  [http.routers.staticOld]
+    entryPoints = [ "https"]
+    rule = "Host(`old.bytespeicher.org`) || Host(`old.makerspace-erfurt.de`)"
+    service = "staticOld"
+ 
+    [http.routers.staticOld.tls]
+      certResolver = "letsencrypt"
