@@ -1,0 +1,20 @@
+[http.middlewares]
+  [http.middlewares.redirectOldWordpress.redirectRegex]
+    regex = "^http://(makerspace-erfurt.de|bytespeicher.org)/$"
+    replacement = "https://technikkultur-erfurt.de"
+  [http.middlewares.redirectOldWordpressContent.redirectRegex]
+    regex = "^http://(makerspace-erfurt.de|bytespeicher.org)/(.*)$"
+    replacement = "https://old.${1}/${2}"
+
+[http.services.redirectOldWordpress]
+  [[http.services.redirectOldWordpress.loadBalancer.servers]]
+    url = "http://127.0.0.1/"
+
+[http.routers]
+  [http.routers.oldWordpress]
+    entryPoints = [ "https" ]
+    middlewares = [ "redirectOldWordpress", "redirectOldWordpressContent", "www_to_non-www" ]
+    rule = "Host(`bytespeicher.org`) || Host(`www.bytespeicher.org`) || Host(`makerspace-erfurt.de`) || Host(`www.makerspace-erfurt.de`)"
+
+    [http.routers.oldWordpress.tls]
+      certResolver = "letsencrypt"
