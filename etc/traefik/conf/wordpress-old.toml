@@ -1,9 +1,9 @@
 [http.middlewares]
   [http.middlewares.redirectOldWordpress.redirectRegex]
-    regex = "^http://(makerspace-erfurt.de|bytespeicher.org)(/|/feed/)$"
+    regex = "^https://(makerspace-erfurt.de|bytespeicher.org)(/|/feed/)$"
     replacement = "https://technikkultur-erfurt.de${2}"
   [http.middlewares.redirectOldWordpressContent.redirectRegex]
-    regex = "^http://(makerspace-erfurt.de|bytespeicher.org)/(.*)$"
+    regex = "^https://(makerspace-erfurt.de|bytespeicher.org)/(.*)$"
     replacement = "https://old.${1}/${2}"
 
 [http.services.redirectOldWordpress]
