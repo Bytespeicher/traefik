@@ -1,0 +1,23 @@
+[http.services]
+  [http.services.status.loadbalancer]
+    [[http.services.status.loadbalancer.servers]]
+      url = "http://10.2.0.11:5000"
+
+[http.routers]
+
+  [http.routers.status]
+    entryPoints = [ "https"]
+    rule = "Host(`status.bytespeicher.org`)"
+    service = "status"
+ 
+    [http.routers.status.tls]
+      certResolver = "letsencrypt"
+      options = "statusBytespeicher" 
+
+  [http.routers.statusMS]
+    entryPoints = [ "https"]
+    rule = "Host(`status.makerspace-erfurt.de`)"
+    service = "status"
+ 
+    [http.routers.statusMS.tls]
+      certResolver = "letsencrypt"
