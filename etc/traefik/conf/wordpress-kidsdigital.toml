@@ -1,0 +1,14 @@
+[http.services]
+  [http.services.wordpressKidsDigital.loadbalancer]
+    [[http.services.wordpressKidsDigital.loadbalancer.servers]]
+      url = "http://10.2.0.12"
+
+[http.routers]
+  [http.routers.wordpressKidsDigital]
+    entryPoints = [ "https"]
+    middlewares = [ "www_to_non-www" ]
+    rule = "Host(`kids-digital.de`) || Host(`www.kids-digital.de`)"
+    service = "wordpressKidsDigital"
+
+    [http.routers.wordpressKidsDigital.tls]
+      certResolver = "letsencrypt"
