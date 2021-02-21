@@ -1,0 +1,15 @@
+[http.services]
+  [http.services.cloud.loadbalancer]
+    [[http.services.cloud.loadbalancer.servers]]
+      url = "http://10.2.0.14:80"
+
+[http.routers]
+
+  [http.routers.cloud]
+    entryPoints = [ "https"]
+    rule = "Host(`cloud.technikkultur-erfurt.de`) || Host(`oc.makerspace-erfurt.de`)"
+    middlewares = [ "securityHeadersCloud" ]
+    service = "cloud"
+ 
+    [http.routers.cloud.tls]
+      certResolver = "letsencrypt"
