@@ -8,3 +8,12 @@
     contentTypeNosniff = true
     frameDeny = true
     sslRedirect = true
+
+  [http.middlewares.securityHeadersCloud.headers]
+    stsIncludeSubdomains = false
+    stsPreload = true
+    stsSeconds = 15768000
+    browserXssFilter = true
+    contentTypeNosniff = true
+    customFrameOptionsValue = "SAMEORIGIN"
+    sslRedirect = true
