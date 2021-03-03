@@ -17,3 +17,14 @@
     contentTypeNosniff = true
     customFrameOptionsValue = "SAMEORIGIN"
     sslRedirect = true
+  
+  [http.middlewares.securityHeadersMatrixElement.headers]
+    stsIncludeSubdomains = false
+    stsPreload = true
+    stsSeconds = 15768000
+    browserXssFilter = true
+    contentTypeNosniff = true
+    customFrameOptionsValue = "SAMEORIGIN"
+    sslRedirect = true
+    contentSecurityPolicy =  "frame-ancestors 'none'"
+    referrerPolicy = "no-referrer"
