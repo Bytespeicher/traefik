@@ -1,0 +1,15 @@
+[http.services]
+  [http.services.matrixElement.loadbalancer]
+    [[http.services.matrixElement.loadbalancer.servers]]
+      url = "http://10.2.0.15"
+
+[http.routers]
+
+  [http.routers.matrixElement]
+    entryPoints = [ "https"]
+    rule = "Host(`element.erfurt.chat`)"
+    service = "matrixElement"
+    middlewares = [ "securityHeadersMatrixElement" ]
+ 
+    [http.routers.matrixElement.tls]
+      certResolver = "letsencrypt"
