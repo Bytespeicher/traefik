@@ -1,0 +1,15 @@
+[http.services]
+  [http.services.apiFreifunkErfurt.loadbalancer]
+    [[http.services.apiFreifunkErfurt.loadbalancer.servers]]
+      url = "http://10.2.0.7"
+
+[http.routers]
+
+  [http.routers.apiFreifunkErfurt]
+    entryPoints = [ "https"]
+    middlewares = [ "securityHeaders" ]
+    rule = "Host(`api.erfurt.freifunk.net`)"
+    service = "apiFreifunkErfurt"
+ 
+    [http.routers.apiFreifunkErfurt.tls]
+      certResolver = "letsencrypt"
