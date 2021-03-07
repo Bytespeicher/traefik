@@ -7,6 +7,7 @@
 
   [http.routers.staticOld]
     entryPoints = [ "https"]
+    middlewares = [ "securityHeaders" ]
     rule = "Host(`old.bytespeicher.org`) || Host(`old.makerspace-erfurt.de`)"
     service = "staticOld"
  

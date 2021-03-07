@@ -13,7 +13,7 @@
 
   [http.routers.wordpressFreifunkErfurt]
     entryPoints = [ "https"]
-    middlewares = [ "www_to_non-www" ]
+    middlewares = [ "www_to_non-www", "securityHeaders" ]
     rule = "Host(`erfurt.freifunk.net`) || Host(`www.erfurt.freifunk.net`)"
     service = "wordpressFreifunkErfurt"
  
@@ -23,7 +23,7 @@
   # Router for freifunk-erfurt.de
   [http.routers.freifunkErfurt]
     entryPoints = [ "https"]
-    middlewares = [ "redirectFreifunkErfurt" ]
+    middlewares = [ "redirectFreifunkErfurt", "securityHeaders" ]
     rule = "Host(`freifunk-erfurt.de`) || Host(`www.freifunk-erfurt.de`)"
     service = "wordpressFreifunkErfurt"
 

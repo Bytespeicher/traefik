@@ -13,6 +13,7 @@
 
   [http.routers.paste]
     entryPoints = [ "https"]
+    middlewares = [ "securityHeaders" ]
     rule = "Host(`paste.technikkultur-erfurt.de`)"
     service = "paste"
  
@@ -22,7 +23,7 @@
   # Router for old paste url
   [http.routers.pasteOld]
     entryPoints = [ "https"]
-    middlewares = [ "redirectOldPaste" ]
+    middlewares = [ "redirectOldPaste", "securityHeaders" ]
     rule = "Host(`paste.bytespeicher.org`)"
     service = "paste"
 
