@@ -6,7 +6,7 @@
 [http.routers]
   [http.routers.wordpressKidsDigital]
     entryPoints = [ "https"]
-    middlewares = [ "www_to_non-www" ]
+    middlewares = [ "www_to_non-www", "securityHeaders" ]
     rule = "Host(`kids-digital.de`) || Host(`www.kids-digital.de`)"
     service = "wordpressKidsDigital"
 

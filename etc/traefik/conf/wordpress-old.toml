@@ -13,7 +13,7 @@
 [http.routers]
   [http.routers.oldWordpress]
     entryPoints = [ "https" ]
-    middlewares = [ "redirectOldWordpress", "redirectOldWordpressContent", "www_to_non-www" ]
+    middlewares = [ "redirectOldWordpress", "redirectOldWordpressContent", "www_to_non-www", "securityHeaders" ]
     rule = "Host(`bytespeicher.org`) || Host(`www.bytespeicher.org`) || Host(`makerspace-erfurt.de`) || Host(`www.makerspace-erfurt.de`)"
     service = "redirectOldWordpress"
 

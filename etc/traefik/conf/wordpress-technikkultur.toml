@@ -11,7 +11,7 @@
 [http.routers]
   [http.routers.wordpress]
     entryPoints = [ "https"]
-    middlewares = [ "redirectOldWiki", "www_to_non-www" ]
+    middlewares = [ "redirectOldWiki", "www_to_non-www", "securityHeaders" ]
     rule = "Host(`technikkultur-erfurt.de`) || Host(`www.technikkultur-erfurt.de`)"
     service = "wordpress"
 
