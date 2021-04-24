@@ -7,7 +7,6 @@
 
   [http.routers.bytecluster]
     entryPoints = [ "http"]
-    middlewares = [ "securityHeaders" ]
     rule = "Host(`bytecluster0002.bytespeicher.org`)"
     service = "bytecluster"
     priority = 999
