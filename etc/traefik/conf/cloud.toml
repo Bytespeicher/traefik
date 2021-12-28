@@ -7,7 +7,7 @@
 
   [http.routers.cloud]
     entryPoints = [ "https"]
-    rule = "Host(`cloud.technikkultur-erfurt.de`) || Host(`oc.makerspace-erfurt.de`)"
+    rule = "Host(`cloud.technikkultur-erfurt.de`)"
     middlewares = [ "securityHeadersCloud" ]
     service = "cloud"
  
